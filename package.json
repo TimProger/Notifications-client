@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "author": "Tima Akylveren",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +14,7 @@
   },
   "scripts": {
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix --color",
+    "lint:fix": "eslint ./src --fix --color npm run test ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
