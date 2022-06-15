@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": [
         "react-app",
@@ -16,6 +17,7 @@
         }
     },
     "rules": {
+        "linebreak-style": "off",
         "indent": [
             "error",
             4
@@ -34,6 +36,9 @@
                     ".jsx"
                 ]
             }
-        ]
+        ],
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "react/prop-types": "off"
     }
 }
