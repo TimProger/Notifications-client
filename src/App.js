@@ -1,5 +1,7 @@
 import './App.css';
 
+const b = 2
+
 function App() {
     return (
         <div className="App">
