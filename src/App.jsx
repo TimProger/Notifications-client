@@ -1,8 +1,10 @@
 import './App.css';
+import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router';
-import Chat from './pages/Chat/Chat.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
+
+const Chat = React.lazy(() => import('./pages/Chat/Chat.jsx'))
 
 const routes = [
     {
@@ -22,9 +24,11 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Navbar />
-                <Routes>
-                    {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
-                </Routes>
+                <Suspense fallback={<div>Загрузка</div>}>
+                    <Routes>
+                        {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
+                    </Routes>
+                </Suspense>
             </div>
         </BrowserRouter>
     );
