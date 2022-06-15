@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router';
 import Chat from './pages/Chat/Chat.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
@@ -18,12 +19,14 @@ const routes = [
 
 function App() {
     return (
-        <div className="App">
-            <Navbar />
-            <Routes>
-                {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
-            </Routes>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Navbar />
+                <Routes>
+                    {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 
