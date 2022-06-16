@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router';
 import styled from 'styled-components';
 import colors from './colors';
 import Navbar from './components/Navbar/Navbar.jsx'
-import Flex from './components/Flex'
+import Flex from './ui/Flex'
 
 const Chat = React.lazy(() => import('./pages/Chat/Chat.jsx'))
 
@@ -31,7 +31,7 @@ function App() {
         <BrowserRouter>
             <AppWrapper background={colors.main_background}>
                 <Navbar />
-                <Flex direction='column' align='center' justify='center' width='100%' height='700px'>
+                <Flex type='centered' width='100%' height='700px'>
                     <Suspense fallback={<div>Загрузка</div>}>
                         <Routes>
                             {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}

@@ -1,19 +1,21 @@
 import Form from '../../components/Form/Form.jsx'
-import Text from '../../components/Text'
 import colors from '../../colors'
-import Flex from '../../components/Flex'
+import Flex from '../../ui/Flex'
+import Text from '../../ui/Text'
 
 function Chat() {
     return (
         <Flex
-            direction='column'
-            justify='space-between'
-            align='center'
+            type='chat'
             padding='10px'
-            heigth='50px'
             background={colors.secondary_background}
         >
-            <Text color={colors.main_text}>Chat Page</Text>
+            <Text
+                type="h1"
+                color={colors.main_text}
+            >
+                    Chat Page
+            </Text>
             <Form />
         </Flex>
     );
