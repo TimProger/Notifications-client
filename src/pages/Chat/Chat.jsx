@@ -7,6 +7,7 @@ function Chat() {
     return (
         <Flex
             type='chat'
+            radius='5px'
             padding='10px'
             background={colors.secondary_background}
         >

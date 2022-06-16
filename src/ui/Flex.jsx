@@ -32,6 +32,7 @@ const Flex = styled.div`
     padding:  ${({ padding }) => padding || '0'};
     height:  ${({ height }) => height || 'auto'};
     width:  ${({ width }) => width || 'auto'};
+    border-radius:  ${({ radius }) => radius || '0'};
 `;
 
 export default Flex

@@ -11,7 +11,7 @@ export const TextInputStyled = styled.input.attrs({ type: 'text' })`
     border-radius: 2px; 
 `
 
-export const SubmitInputStyled = styled.input.attrs({ type: 'submit' })`
+export const SubmitInputStyled = styled.button.attrs({ type: 'submit' })`
     color: ${({ color }) => color || 'black'};
     background: ${({ background }) => background || 'white'};
     border: 1px solid ${({ border }) => border || 'black'};
