@@ -8,7 +8,7 @@ import {
 } from '../../ui/Input'
 import Text from '../../ui/Text'
 
-function ChatForm() {
+function ChatForm({ fetchPosts1 }) {
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             email: '2email2@mail.ru',
@@ -19,7 +19,7 @@ function ChatForm() {
     return (
         <form
             onSubmit={handleSubmit((formData) => {
-                console.log(formData)
+                fetchPosts1(formData)
             })}
         >
             <Form margin='10px'>

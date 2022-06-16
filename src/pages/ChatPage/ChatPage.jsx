@@ -1,4 +1,4 @@
-import Form from '../../components/Form/Form.jsx'
+import Form from '../../components/Form/FormContainer.jsx'
 import colors from '../../colors'
 import Flex from '../../ui/Flex'
 import Text from '../../ui/Text'
