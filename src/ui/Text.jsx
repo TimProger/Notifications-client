@@ -16,8 +16,6 @@ const TextStyleTypes = {
     `,
 }
 
-const b = 2
-
 const TextStyled = styled.p`
     ${({ type = 'p' }) => TextStyleTypes[type]}
     color: ${({ color }) => color};
