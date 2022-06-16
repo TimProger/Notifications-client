@@ -6,6 +6,7 @@ import {
     TextInputStyled,
     SubmitInputStyled,
 } from '../../ui/Input'
+import Text from '../../ui/Text'
 
 function ChatForm() {
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -22,36 +23,40 @@ function ChatForm() {
             })}
         >
             <Form margin='10px'>
-                {errors.nickname && <span>{errors.nickname.message}</span>}
-                <TextInputStyled
-                    border={colors.main_border}
-                    placeholder='Введите имя'
-                    {...register(
-                        'nickname',
-                        {
-                            required: 'Введите почту',
+                <div>
+                    {errors.nickname && <Text color={colors.main_error_text}>{errors.nickname.message}</Text>}
+                    <TextInputStyled
+                        border={colors.main_border}
+                        placeholder='Enter your nickname'
+                        {...register(
+                            'nickname',
+                            {
+                                required: 'You must enter your nickname',
 
-                        },
-                    )}
-                    name="nickname"
-                />
-                {errors.message && <span>{errors.message.message}</span>}
-                <TextInputStyled
-                    border={colors.main_border}
-                    placeholder='Введите текст'
-                    {...register(
-                        'message',
-                        {
-                            required: 'Введите почту',
+                            },
+                        )}
+                        name="nickname"
+                    />
+                </div>
+                <div>
+                    {errors.message && <Text color={colors.main_error_text}>{errors.message.message}</Text>}
+                    <TextInputStyled
+                        border={colors.main_border}
+                        placeholder='Enter your message'
+                        {...register(
+                            'message',
+                            {
+                                required: 'You must enter your message',
 
-                        },
-                    )}
-                    name="message"/>
+                            },
+                        )}
+                        name="message"/>
+                </div>
                 <SubmitInputStyled
                     border={colors.main_border}
                     name="submit"
                 >
-                    Отправить сообщение
+                    Send a message
                 </SubmitInputStyled>
             </Form>
         </form>

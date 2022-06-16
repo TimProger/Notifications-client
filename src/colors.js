@@ -5,6 +5,7 @@ const colors = {
     main_text: '#4c3828',
     main_border: '#775f5f',
     hover_text: '#775f5f',
+    main_error_text: '#c92d2d',
 }
 
 export default colors

@@ -19,7 +19,7 @@ function Navbar() {
                 color={colors.main_text}
                 hover={colors.hover_background}
             >
-                    Чат
+                    Chat
             </NavLink>
         </Flex>
     );

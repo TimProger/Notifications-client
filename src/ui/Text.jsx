@@ -19,6 +19,7 @@ const TextStyleTypes = {
 const TextStyled = styled.p`
     ${({ type = 'p' }) => TextStyleTypes[type]}
     color: ${({ color }) => color};
+        font-family: 'action_man';
 `
 
 export default TextStyled;

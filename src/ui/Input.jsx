@@ -9,6 +9,9 @@ export const TextInputStyled = styled.input.attrs({ type: 'text' })`
     padding-top: 2px;
     padding-bottom: 2px;
     border-radius: 2px; 
+    &, &::placeholder{
+        font-family: 'action_man';
+    }
 `
 
 export const SubmitInputStyled = styled.button.attrs({ type: 'submit' })`

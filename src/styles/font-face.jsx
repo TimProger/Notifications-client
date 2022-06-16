@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import ActionManFont from '../assets/fonts/Action_Man-webfont.woff'
+import ActionManFont from '../assets/fonts/Mulish-Regular.woff'
 
 const FontFace = createGlobalStyle`
     @font-face {
