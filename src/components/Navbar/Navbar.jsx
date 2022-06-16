@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import colors from '../../colors'
 import Flex from '../../ui/Flex'
 import Text from '../../ui/Text'
+import NavLink from '../../ui/NavLink'
 
 function Navbar() {
     return (
@@ -12,8 +12,15 @@ function Navbar() {
             height="50px"
             background={colors.secondary_background}
         >
-            <Text type='h1' color={colors.main_text}>Navbar</Text>
-            <NavLink to={'/'}>Чат</NavLink>
+            <Text type='navbar' color={colors.main_text}>Navbar</Text>
+            <NavLink
+                type='navbar'
+                to={'/'}
+                color={colors.main_text}
+                backgroundHover={colors.hover_background}
+            >
+                    Чат
+            </NavLink>
         </Flex>
     );
 }

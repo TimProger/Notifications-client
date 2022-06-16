@@ -10,6 +10,10 @@ const TextStyleTypes = {
     p: css`
         font-size: 12px;
     `,
+    navbar: css`
+        font-size: 20px;
+        padding: 20px;
+    `,
 }
 
 const TextStyled = styled.p`
