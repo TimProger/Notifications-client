@@ -17,7 +17,7 @@ function Navbar() {
                 type='navbar'
                 to={'/'}
                 color={colors.main_text}
-                backgroundHover={colors.hover_background}
+                hover={colors.hover_background}
             >
                     Чат
             </NavLink>

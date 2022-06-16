@@ -6,7 +6,7 @@ const NavLinkStyleTypes = {
         font-size: 20px;
         font-size: 16px;
         &:hover{
-            background: ${({ backgroundHover }) => backgroundHover}
+            background: ${({ hover }) => hover}
         }
         height: 50px;
         padding: 16px;
