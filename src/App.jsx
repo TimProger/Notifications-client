@@ -6,7 +6,7 @@ import colors from './colors';
 import Navbar from './components/Navbar/Navbar.jsx'
 import Flex from './ui/Flex'
 
-const Chat = React.lazy(() => import('./pages/Chat/Chat.jsx'))
+const Chat = React.lazy(() => import('./pages/ChatPage/ChatPage.jsx'))
 
 const routes = [
     {
