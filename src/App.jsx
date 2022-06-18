@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import styled from 'styled-components';
 import colors from './colors';
 import Navbar from './components/Navbar/Navbar.jsx'
+import useActions from './hooks/useActions';
 import Flex from './ui/Flex'
 
 const Chat = React.lazy(() => import('./pages/ChatPage/ChatPage.jsx'))
@@ -26,6 +27,10 @@ const AppWrapper = styled.div`
 `
 
 function App() {
+    const { fetchAllMessages } = useActions()
+    React.useEffect(() => {
+        fetchAllMessages()
+    }, [])
     return (
         <AppWrapper background={colors.main_background}>
             <Navbar />

@@ -31,18 +31,18 @@ function ChatForm({
         >
             <Form margin='10px'>
                 <div>
-                    {errors.nickname && <Text color={colors.main_error_text}>{errors.nickname.message}</Text>}
+                    {errors.name && <Text color={colors.main_error_text}>{errors.name.message}</Text>}
                     <TextInputStyled
                         border={colors.main_border}
-                        placeholder='Enter your nickname'
+                        placeholder='Enter your name'
                         {...register(
-                            'nickname',
+                            'name',
                             {
-                                required: 'You must enter your nickname',
+                                required: 'You must enter your name',
 
                             },
                         )}
-                        name="nickname"
+                        name="name"
                     />
                 </div>
                 <div>
@@ -66,7 +66,7 @@ function ChatForm({
                     Send a message
                 </SubmitInputStyled>
             </Form>
-            {notifications.length > 0 && notifications.map((el, index) => el && <Text key={index}>{el.nickname}: {el.message}</Text>)}
+            {notifications.length > 0 && notifications.map((el, index) => el && <Text key={index}>{el.name}: {el.message}</Text>)}
         </form>
     )
 }
