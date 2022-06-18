@@ -4,7 +4,12 @@ export const NotifActionTypes = {
 }
 
 const initialState = {
-    notifications: [],
+    notifications: [
+        {
+            nickname: 'Bob',
+            message: 'Hello everyone!',
+        },
+    ],
     loading: false,
     error: null,
 }

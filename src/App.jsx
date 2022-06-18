@@ -1,9 +1,6 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router';
-import { Provider } from 'react-redux';
 import styled from 'styled-components';
-import store from './store';
 import colors from './colors';
 import Navbar from './components/Navbar/Navbar.jsx'
 import Flex from './ui/Flex'
@@ -30,20 +27,16 @@ const AppWrapper = styled.div`
 
 function App() {
     return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <AppWrapper background={colors.main_background}>
-                    <Navbar />
-                    <Flex type='centered' width='100%' height='700px'>
-                        <Suspense fallback={<div>Загрузка</div>}>
-                            <Routes>
-                                {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
-                            </Routes>
-                        </Suspense>
-                    </Flex>
-                </AppWrapper>
-            </BrowserRouter>
-        </Provider>
+        <AppWrapper background={colors.main_background}>
+            <Navbar />
+            <Flex type='centered' width='100%' height='700px'>
+                <Suspense fallback={<div>Загрузка</div>}>
+                    <Routes>
+                        {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
+                    </Routes>
+                </Suspense>
+            </Flex>
+        </AppWrapper>
     );
 }
 

@@ -4,14 +4,15 @@ import Form from './Form'
 import useActions from '../../hooks/useActions';
 
 function ChatFormContainer() {
-    const { notifications, error, loading } = useSelector((state) => state.notif)
-    const { fetchPosts1 } = useActions()
+    const { notifications } = useSelector((state) => state.notif)
+    const {
+        sendMessage, getMessage,
+    } = useActions()
     return (
         <Form
             notifications={notifications}
-            error={error}
-            loading={loading}
-            fetchPosts1={fetchPosts1}
+            sendMessage={sendMessage}
+            getMessage={getMessage}
         />
     )
 }

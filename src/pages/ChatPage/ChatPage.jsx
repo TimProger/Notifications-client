@@ -10,6 +10,7 @@ function Chat() {
             radius='5px'
             padding='10px'
             background={colors.secondary_background}
+            style={{ transform: 'scale(1.4)' }}
         >
             <Text
                 type="h1"

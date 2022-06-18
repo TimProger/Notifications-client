@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { socket } from '../../service/socket'
 import colors from '../../colors'
 import Form from '../../ui/Form'
 import {
@@ -8,18 +9,25 @@ import {
 } from '../../ui/Input'
 import Text from '../../ui/Text'
 
-function ChatForm({ fetchPosts1 }) {
+function ChatForm({
+    notifications, getMessage, sendMessage,
+}) {
+    React.useEffect(() => {
+        socket.on('message', (message) => {
+            console.log('server: ', message)
+            getMessage(message)
+        })
+        return () => {
+            socket.off('message', console.log('off'));
+        }
+    }, [])
     const { register, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-            email: '2email2@mail.ru',
-            password: '1q2w3e4r5',
-        },
         mode: 'onBlur',
     });
     return (
         <form
             onSubmit={handleSubmit((formData) => {
-                fetchPosts1(formData)
+                sendMessage(socket, formData)
             })}
         >
             <Form margin='10px'>
@@ -59,6 +67,7 @@ function ChatForm({ fetchPosts1 }) {
                     Send a message
                 </SubmitInputStyled>
             </Form>
+            {notifications.length > 0 && notifications.map((el, index) => el && <Text key={index}>{el.nickname}: {el.message}</Text>)}
         </form>
     )
 }
