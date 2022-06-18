@@ -14,7 +14,6 @@ function ChatForm({
 }) {
     React.useEffect(() => {
         socket.on('message', (message) => {
-            console.log('server: ', message)
             getMessage(message)
         })
         return () => {

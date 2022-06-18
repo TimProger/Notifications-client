@@ -2,7 +2,6 @@ import { NotifActionTypes } from '../reducers/notif.reducer'
 
 export const sendMessage = (socket, message) => async (dispatch) => {
     try {
-        console.log('send', message)
         socket.emit('message', message);
     } catch (e) {
         console.log('Error', e)
@@ -15,7 +14,6 @@ export const sendMessage = (socket, message) => async (dispatch) => {
 
 export const getMessage = (message) => async (dispatch) => {
     try {
-        console.log('add_notif ac: ', message)
         dispatch({ type: NotifActionTypes.ADD_NOTIF, payload: message })
     } catch (e) {
         dispatch({
