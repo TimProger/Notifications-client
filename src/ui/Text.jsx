@@ -8,7 +8,7 @@ const TextStyleTypes = {
         font-size: 16px;
     `,
     p: css`
-        font-size: 12px;
+        font-size: 14px;
     `,
     navbar: css`
         font-size: 20px;

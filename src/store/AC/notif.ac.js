@@ -1,7 +1,7 @@
 import { SERVER_URL } from '../../config';
 import { NotifActionTypes } from '../reducers/notif.reducer'
 
-export const sendMessage = (socket, message) => async (dispatch) => {
+export const sendHandler = (socket, message) => async (dispatch) => {
     try {
         socket.emit('message', message);
     } catch (e) {
@@ -13,7 +13,7 @@ export const sendMessage = (socket, message) => async (dispatch) => {
     }
 }
 
-export const getMessage = (message) => async (dispatch) => {
+export const getHandler = (message) => async (dispatch) => {
     try {
         dispatch({ type: NotifActionTypes.ADD_NOTIF, payload: message })
     } catch (e) {
@@ -21,6 +21,14 @@ export const getMessage = (message) => async (dispatch) => {
             type: NotifActionTypes.ADD_NOTIF_ERROR,
             payload: 'Произошла ошибка при получении сообщения',
         })
+    }
+}
+
+export const removeHandler = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS, payload: id })
+    } catch (e) {
+        console.log(`${e}`)
     }
 }
 
@@ -45,18 +53,9 @@ export const fetchRemoveMessage = (socket, id) => async (dispatch) => {
     try {
         fetch(`${SERVER_URL}/notifications/remove?id=${id}`)
             .then(() => {
-                alert('Успех!')
                 socket.emit('remove', id);
             })
     } catch (e) {
         dispatch({ type: NotifActionTypes.FETCH_NOTIF_ERROR, payload: e })
-    }
-}
-
-export const removeHandler = (id) => async (dispatch) => {
-    try {
-        dispatch({ type: NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS, payload: id })
-    } catch (e) {
-        console.log(`${e}`)
     }
 }

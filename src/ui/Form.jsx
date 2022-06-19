@@ -8,6 +8,7 @@ const Form = styled.div`
     gap: 10px;
     margin:  ${({ margin }) => margin || '0'};
     padding:  ${({ padding }) => padding || '0'};
+    width: 100%;
 `;
 
 export default Form

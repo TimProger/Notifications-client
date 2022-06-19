@@ -5,12 +5,28 @@ const FlexStyleTypes = {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        position: fixed;
+        top: 0
     `,
-    /* TODO: Решить проблему DRY */
+    label: css`
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 5px;
+    `,
     chat: css`
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+    `,
+    messages: css`
+        min-height: 100px;
+        max-height: 100px;
+        max-width: 190px;
+        flex-direction: column;
+        align-items: stretch;
+        overflow: scroll;
+        overflow-x: hidden;
+        margin-top: 10px;
     `,
     centered: css`
         flex-direction: column;
@@ -26,13 +42,13 @@ const FlexStyleTypes = {
 
 const Flex = styled.div`
     display: flex;
-    ${({ type = 'default' }) => FlexStyleTypes[type]}
     background: ${({ background }) => background || 'inherit'};
     margin:  ${({ margin }) => margin || '0'}; // Ед. измерения указывается в пропсах
     padding:  ${({ padding }) => padding || '0'};
     height:  ${({ height }) => height || 'auto'};
     width:  ${({ width }) => width || 'auto'};
     border-radius:  ${({ radius }) => radius || '0'};
+    ${({ type = 'default' }) => FlexStyleTypes[type]}
 `;
 
 export default Flex

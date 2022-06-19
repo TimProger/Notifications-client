@@ -8,13 +8,16 @@ import {
     SubmitInputStyled,
 } from '../../ui/Input'
 import Text from '../../ui/Text'
+import Flex from '../../ui/Flex'
 
 function ChatForm({
-    notifications, getMessage, sendMessage, fetchRemoveMessage, removeHandler,
+    notifications, getHandler, sendHandler, fetchRemoveMessage, removeHandler,
 }) {
+    const messages = React.useRef(null)
     React.useEffect(() => {
         socket.on('message', (message) => {
-            getMessage(message)
+            getHandler(message)
+            messages.current.scrollTo(0, messages.current.scrollHeight)
         })
         socket.on('remove', (id) => {
             removeHandler(id)
@@ -29,12 +32,23 @@ function ChatForm({
     return (
         <form
             onSubmit={handleSubmit((formData) => {
-                sendMessage(socket, formData)
+                sendHandler(socket, formData)
             })}
         >
-            <Form margin='10px'>
+            <Flex width={'100%'} type={'messages'} background={colors.main_background} ref={messages}>
+                {notifications.length > 0 && notifications.map((el, index) => {
+                    if (el) {
+                        return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
+                    }
+                    return null
+                })}
+            </Flex>
+            <Form margin='10px' height='100px'>
                 <div>
-                    {errors.name && <Text color={colors.main_error_text}>{errors.name.message}</Text>}
+                    <Flex type={'label'}>
+                        <Text color={colors.main_text}>Name</Text>
+                        {errors.name && <Text color={colors.main_error_text}>{errors.name.message}</Text>}
+                    </Flex>
                     <TextInputStyled
                         border={colors.main_border}
                         placeholder='Enter your name'
@@ -49,7 +63,10 @@ function ChatForm({
                     />
                 </div>
                 <div>
-                    {errors.message && <Text color={colors.main_error_text}>{errors.message.message}</Text>}
+                    <Flex type={'label'}>
+                        <Text color={colors.main_text}>Message</Text>
+                        {errors.message && <Text color={colors.main_error_text}>{errors.message.message}</Text>}
+                    </Flex>
                     <TextInputStyled
                         border={colors.main_border}
                         placeholder='Enter your message'
@@ -69,12 +86,6 @@ function ChatForm({
                     Send a message
                 </SubmitInputStyled>
             </Form>
-            {notifications.length > 0 && notifications.map((el, index) => {
-                if (el) {
-                    return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
-                }
-                return null
-            })}
         </form>
     )
 }

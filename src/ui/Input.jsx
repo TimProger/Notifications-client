@@ -8,7 +8,8 @@ export const TextInputStyled = styled.input.attrs({ type: 'text' })`
     padding-right: 6px;
     padding-top: 2px;
     padding-bottom: 2px;
-    border-radius: 2px; 
+    border-radius: 2px;
+    width: 100%;
     &, &::placeholder{
         font-family: 'action_man';
     }
@@ -23,4 +24,5 @@ export const SubmitInputStyled = styled.button.attrs({ type: 'submit' })`
     padding-top: 2px;
     padding-bottom: 2px;
     border-radius: 2px;
+    width: 100%;
 `

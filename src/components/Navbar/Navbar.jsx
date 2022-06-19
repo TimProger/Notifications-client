@@ -10,14 +10,12 @@ function Navbar() {
             padding='10px'
             width="100%"
             height="50px"
-            background={colors.secondary_background}
         >
             <Text type='navbar' color={colors.main_text}>Navbar</Text>
             <NavLink
                 type='navbar'
                 to={'/'}
                 color={colors.main_text}
-                hover={colors.hover_background}
             >
                     Chat
             </NavLink>
