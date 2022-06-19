@@ -21,7 +21,7 @@ const FlexStyleTypes = {
     messages: css`
         min-height: 100px;
         max-height: 100px;
-        max-width: 190px;
+        max-width: 260px;
         flex-direction: column;
         align-items: stretch;
         overflow: scroll;

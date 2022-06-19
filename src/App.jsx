@@ -34,7 +34,7 @@ function App() {
     return (
         <AppWrapper background={colors.main_background}>
             <Navbar />
-            <Flex type='centered' width='100%' height='400px'>
+            <Flex type='centered' width='100%' height='500px'>
                 <Suspense fallback={<div>Загрузка</div>}>
                     <Routes>
                         {routes.map((el, index) => <Route key={index} path={el.path} exact={el.exact} element={<el.component />} />)}
