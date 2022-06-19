@@ -10,11 +10,14 @@ import {
 import Text from '../../ui/Text'
 
 function ChatForm({
-    notifications, getMessage, sendMessage, fetchRemoveMessage,
+    notifications, getMessage, sendMessage, fetchRemoveMessage, removeHandler,
 }) {
     React.useEffect(() => {
         socket.on('message', (message) => {
             getMessage(message)
+        })
+        socket.on('remove', (id) => {
+            removeHandler(id)
         })
         return () => {
             socket.off('message', console.log('off'));
@@ -68,7 +71,7 @@ function ChatForm({
             </Form>
             {notifications.length > 0 && notifications.map((el, index) => {
                 if (el) {
-                    return <Text onClick={() => fetchRemoveMessage(el._id)} key={index}>{el.name}: {el.message}</Text>
+                    return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
                 }
                 return null
             })}

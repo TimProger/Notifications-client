@@ -41,14 +41,22 @@ export const fetchAllMessages = () => async (dispatch) => {
     }
 }
 
-export const fetchRemoveMessage = (id) => async (dispatch) => {
+export const fetchRemoveMessage = (socket, id) => async (dispatch) => {
     try {
         fetch(`${SERVER_URL}/notifications/remove?id=${id}`)
             .then(() => {
                 alert('Успех!')
-                dispatch({ type: NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS, payload: id })
+                socket.emit('remove', id);
             })
     } catch (e) {
-        alert()
+        dispatch({ type: NotifActionTypes.FETCH_NOTIF_ERROR, payload: e })
+    }
+}
+
+export const removeHandler = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS, payload: id })
+    } catch (e) {
+        console.log(`${e}`)
     }
 }
