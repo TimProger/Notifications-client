@@ -6,13 +6,14 @@ import useActions from '../../hooks/useActions';
 function ChatFormContainer() {
     const { notifications } = useSelector((state) => state.notif)
     const {
-        sendMessage, getMessage,
+        sendMessage, getMessage, fetchRemoveMessage,
     } = useActions()
     return (
         <Form
             notifications={notifications}
             sendMessage={sendMessage}
             getMessage={getMessage}
+            fetchRemoveMessage={fetchRemoveMessage}
         />
     )
 }

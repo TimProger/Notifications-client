@@ -10,7 +10,7 @@ import {
 import Text from '../../ui/Text'
 
 function ChatForm({
-    notifications, getMessage, sendMessage,
+    notifications, getMessage, sendMessage, fetchRemoveMessage,
 }) {
     React.useEffect(() => {
         socket.on('message', (message) => {
@@ -66,7 +66,12 @@ function ChatForm({
                     Send a message
                 </SubmitInputStyled>
             </Form>
-            {notifications.length > 0 && notifications.map((el, index) => el && <Text key={index}>{el.name}: {el.message}</Text>)}
+            {notifications.length > 0 && notifications.map((el, index) => {
+                if (el) {
+                    return <Text onClick={() => fetchRemoveMessage(el._id)} key={index}>{el.name}: {el.message}</Text>
+                }
+                return null
+            })}
         </form>
     )
 }

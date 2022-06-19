@@ -4,14 +4,12 @@ export const NotifActionTypes = {
     FETCH_NOTIF: 'FETCH_NOTIF',
     FETCH_NOTIF_SUCCESS: 'FETCH_NOTIF_SUCCESS',
     FETCH_NOTIF_ERROR: 'FETCH_NOTIF_ERROR',
+    FETCH_NOTIF_REMOVE_SUCCESS: 'FETCH_NOTIF_REMOVE_SUCCESS',
 }
 
 const initialState = {
     notifications: [
-        {
-            name: 'Bob',
-            message: 'Hello everyone!',
-        },
+        {},
     ],
     loading: false,
     error: null,
@@ -29,6 +27,8 @@ const notifReducer = (state = initialState, action) => {
         return { ...state, notifications: action.payload, loading: false }
     case NotifActionTypes.FETCH_NOTIF_ERROR:
         return { ...state, error: action.payload, loading: false }
+    case NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS:
+        return { ...state, notifications: state.notifications.filter((val) => val._id !== action.payload) }
     default:
         return state
     }

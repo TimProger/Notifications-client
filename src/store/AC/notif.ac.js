@@ -27,7 +27,7 @@ export const getMessage = (message) => async (dispatch) => {
 export const fetchAllMessages = () => async (dispatch) => {
     try {
         dispatch({ type: NotifActionTypes.FETCH_NOTIF })
-        fetch(`${SERVER_URL}/message/get`)
+        fetch(`${SERVER_URL}/notifications/get`)
             .then((res) => res.json())
             .then((msgs) => {
                 console.log(msgs)
@@ -38,5 +38,17 @@ export const fetchAllMessages = () => async (dispatch) => {
             type: NotifActionTypes.FETCH_NOTIF_ERROR,
             payload: 'Произошла ошибка при получении сообщений',
         })
+    }
+}
+
+export const fetchRemoveMessage = (id) => async (dispatch) => {
+    try {
+        fetch(`${SERVER_URL}/notifications/remove?id=${id}`)
+            .then(() => {
+                alert('Успех!')
+                dispatch({ type: NotifActionTypes.FETCH_NOTIF_REMOVE_SUCCESS, payload: id })
+            })
+    } catch (e) {
+        alert()
     }
 }
