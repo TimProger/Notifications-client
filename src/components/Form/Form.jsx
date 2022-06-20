@@ -17,7 +17,6 @@ function ChatForm({
     React.useEffect(() => {
         socket.on('message', (message) => {
             getHandler(message)
-            messages.current.scrollTop = messages.current.scrollHeight - messages.current.clientHeight
         })
         socket.on('remove', (id) => {
             removeHandler(id)
