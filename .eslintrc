@@ -42,6 +42,7 @@
         "react/prop-types": "off",
         "default-param-last": "off",
         "import/prefer-default-export": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "no-debugger": "off"
     }
 }

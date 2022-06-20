@@ -17,7 +17,7 @@ function ChatForm({
     React.useEffect(() => {
         socket.on('message', (message) => {
             getHandler(message)
-            messages.current.scrollTo(0, messages.current.scrollHeight)
+            messages.current.scrollTop = messages.current.scrollHeight - messages.current.clientHeight
         })
         socket.on('remove', (id) => {
             removeHandler(id)
@@ -26,6 +26,9 @@ function ChatForm({
             socket.off('message', console.log('off'));
         }
     }, [])
+    React.useEffect(() => {
+        messages.current.scrollTop = messages.current.scrollHeight - messages.current.clientHeight
+    }, [notifications])
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onBlur',
     });
@@ -36,12 +39,14 @@ function ChatForm({
             })}
         >
             <Flex width={'100%'} type={'messages'} background={colors.main_background} ref={messages}>
-                {notifications.length > 0 && notifications.map((el, index) => {
-                    if (el) {
-                        return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
-                    }
-                    return null
-                })}
+                {
+                    notifications.length > 0 && notifications.map((el, index) => {
+                        if (el) {
+                            return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
+                        }
+                        return null
+                    })
+                }
             </Flex>
             <Form margin='10px' height='100px'>
                 <div>

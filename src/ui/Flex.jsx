@@ -23,10 +23,14 @@ const FlexStyleTypes = {
         max-height: 100px;
         max-width: 260px;
         flex-direction: column;
+        justify-content: stretch;
         align-items: stretch;
-        overflow: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         margin-top: 10px;
+        & > :first-child {
+            margin-top: auto !important;
+        }
     `,
     centered: css`
         flex-direction: column;
