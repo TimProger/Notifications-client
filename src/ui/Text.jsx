@@ -10,6 +10,13 @@ const TextStyleTypes = {
     p: css`
         font-size: 14px;
     `,
+    del: css`
+        font-size: 14px;
+        &:hover{
+            color: red;
+            cursor: pointer;
+        }
+    `,
     navbar: css`
         font-size: 20px;
         padding: 20px;
@@ -17,9 +24,9 @@ const TextStyleTypes = {
 }
 
 const TextStyled = styled.p`
-    ${({ type = 'p' }) => TextStyleTypes[type]}
     color: ${({ color }) => color};
-        font-family: 'action_man';
+    font-family: 'action_man';
+    ${({ type = 'p' }) => TextStyleTypes[type]}
 `
 
 export default TextStyled;

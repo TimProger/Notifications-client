@@ -1,2 +1,2 @@
-export const SOCKET_URL = 'http://localhost:32323'
-export const SERVER_URL = 'http://localhost:32323/api/v1'
+export const SOCKET_URL = 'https://timprog-chat-api.herokuapp.com/'
+export const SERVER_URL = 'https://timprog-chat-api.herokuapp.com//api/v1'

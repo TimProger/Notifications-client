@@ -90,14 +90,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: inherit;
         font-weight: 400;
     }
-    form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    form div{
-        width: 100%;
-    }
 `
 
 export default GlobalStyles

@@ -12,11 +12,22 @@ const FlexStyleTypes = {
         flex-direction: row;
         justify-content: space-between;
         padding-bottom: 5px;
+        width: 100%;
     `,
     chat: css`
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        width: 300px;
+        & > form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            & > div{
+                width: 100%;
+            }
+        }
     `,
     centered: css`
         flex-direction: column;
@@ -38,6 +49,8 @@ const FlexStyleTypes = {
         overflow-y: auto;
         overflow-x: hidden;
         margin-top: 10px;
+        width: 100%;
+        padding: 10px;
         & > :first-child {
             margin-top: auto !important;
         }
@@ -57,6 +70,7 @@ const Flex = styled.div`
     height:  ${({ height }) => height || 'auto'};
     width:  ${({ width }) => width || 'auto'};
     border-radius:  ${({ radius }) => radius || '0'};
+    gap:  ${({ gap }) => gap || '0'};
     ${({ type = 'default' }) => FlexStyleTypes[type]}
 `;
 

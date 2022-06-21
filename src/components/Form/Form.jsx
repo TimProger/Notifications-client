@@ -44,7 +44,10 @@ function ChatForm({
                             return (
                                 <Flex type="message" key={index}>
                                     <Text >{el.name}: {el.message}</Text>
-                                    <Text onClick={() => fetchRemoveMessage(socket, el._id)}>X</Text>
+                                    <Flex gap="5px">
+                                        <Text >{el.time}</Text>
+                                        <Text type="del" onClick={() => fetchRemoveMessage(socket, el._id)}>X</Text>
+                                    </Flex>
                                 </Flex>
 
                             )
