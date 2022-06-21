@@ -41,7 +41,13 @@ function ChatForm({
                 {
                     notifications.length > 0 && notifications.map((el, index) => {
                         if (el) {
-                            return <Text onClick={() => fetchRemoveMessage(socket, el._id)} key={index}>{el.name}: {el.message}</Text>
+                            return (
+                                <Flex type="message" key={index}>
+                                    <Text >{el.name}: {el.message}</Text>
+                                    <Text onClick={() => fetchRemoveMessage(socket, el._id)}>X</Text>
+                                </Flex>
+
+                            )
                         }
                         return null
                     })

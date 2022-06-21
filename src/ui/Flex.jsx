@@ -18,6 +18,16 @@ const FlexStyleTypes = {
         justify-content: space-between;
         align-items: center;
     `,
+    centered: css`
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    `,
+    default: css`
+        flex-direction: row;
+        justify-content: stretch;
+        align-items: stretch;
+    `,
     messages: css`
         min-height: 100px;
         max-height: 100px;
@@ -32,14 +42,9 @@ const FlexStyleTypes = {
             margin-top: auto !important;
         }
     `,
-    centered: css`
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    `,
-    default: css`
+    message: css`
         flex-direction: row;
-        justify-content: stretch;
+        justify-content: space-between;
         align-items: stretch;
     `,
 }
