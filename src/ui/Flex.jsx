@@ -51,6 +51,7 @@ const FlexStyleTypes = {
         margin-top: 10px;
         width: 100%;
         padding: 10px;
+        gap: 5px;
         & > :first-child {
             margin-top: auto !important;
         }
